@@ -28,6 +28,8 @@ declare const ScrollContainer: FC<{
   style?: CSSProperties;
   ignoreElements?: string;
   nativeMobileScroll?: boolean;
+  startPosX?: number,
+  startPosY?: number
 }>;
 
 export default ScrollContainer;

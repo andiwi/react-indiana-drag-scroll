@@ -23,7 +23,9 @@ export default class ScrollContainer extends PureComponent {
     className: PropTypes.string,
     style: PropTypes.object,
     ignoreElements: PropTypes.string,
-    nativeMobileScroll: PropTypes.bool
+    nativeMobileScroll: PropTypes.bool,
+    startPosX: PropTypes.number,
+    startPosY: PropTypes.number
   }
 
   static defaultProps = {
@@ -71,6 +73,11 @@ export default class ScrollContainer extends PureComponent {
         this.forceUpdate()
       }
     }
+  }
+
+  componentDidUpdate() {
+    const container = this.container.current
+    container.scrollTo(this.props.startPosX, this.props.startPosY)
   }
 
   componentWillUnmount() {
